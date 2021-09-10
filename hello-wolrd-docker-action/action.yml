@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+	hello_world_job:
+   		runs-on: ubuntu-latest
+		name: Tarea para saludar
+		steps:
+		- name: Hola mundo action step
+		id: hello
+		uses: actions/hello-woldr-docker-action@v1
+		with:
+			who-to-greet: 'Bruno'
+		# Use the output from the 'hello' step
+		- name: Obtener la hora de salida
+		run: echo "La fecha y hora es ${{ steps.hello.outputs.time }}"
+
